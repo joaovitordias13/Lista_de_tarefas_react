@@ -5,20 +5,21 @@ import { Container } from './styles'
 import { RootReducer } from '../../store'
 
 const ListaDeTarefas = () => {
-  const { tarefas } = useSelector((state: RootReducer) => state)
+  const { itens } = useSelector((state: RootReducer) => state.tarefas)
   return (
     <Container>
       <p>
         2 tarefas maracadas como: &quot;Categoria&ldquo; e &quot;Termo&ldquo;
       </p>
       <ul>
-        {tarefas.map((t) => (
+        {itens.map((t) => (
           <li key={t.titulo}>
             <Tarefa
+              id={t.id}
               descricao={t.descricao}
               titulo={t.titulo}
               status={t.status}
-              prioridade={t.priordade}
+              priordade={t.priordade}
             />
           </li>
         ))}
